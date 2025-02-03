@@ -22,6 +22,7 @@ export default function TabLayout() {
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+                animation: 'shift',
                 // Disable the static render of the header on web
                 // to prevent a hydration error in React Navigation v6.
                 headerShown: useClientOnlyValue(false, true),
@@ -30,7 +31,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Home',
+                    title: 'Dashboard',
                     tabBarIcon: ({color}) => <TabBarIcon name="home" color={color}/>,
                     headerRight: () => (
                         <Link href="/modal" asChild>
@@ -49,24 +50,31 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="rewards"
+                name="spending"
                 options={{
-                    title: 'Rewards',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    title: 'Spending',
+                    tabBarIcon: ({color}) => <TabBarIcon name="bar-chart" color={color}/>,
                 }}
             />
             <Tabs.Screen
-                name="transactions"
+                name="payment"
                 options={{
-                    title: 'Transactions',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    title: 'Payment',
+                    tabBarIcon: ({color}) => <TabBarIcon name="money" color={color}/>,
+                }}
+            />
+            <Tabs.Screen
+                name="cards"
+                options={{
+                    title: 'Cards',
+                    tabBarIcon: ({color}) => <TabBarIcon name="credit-card" color={color}/>,
                 }}
             />
             <Tabs.Screen
                 name="profile"
                 options={{
-                    title: 'Profile',
-                    tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
+                    title: 'More',
+                    tabBarIcon: ({color}) => <TabBarIcon name="bars" color={color}/>,
                 }}
             />
         </Tabs>

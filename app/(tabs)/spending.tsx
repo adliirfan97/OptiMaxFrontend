@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
-export default function ProfileScreen() {
+export default function SpendingScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>More Options</Text>
+      <Text style={styles.title}>Spending</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/profile.tsx" />
+      <EditScreenInfo path="app/(tabs)/spending.tsx" />
     </View>
   );
 }
