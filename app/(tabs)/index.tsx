@@ -1,9 +1,15 @@
-import { Text, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
+import CreditCard from "@/components/CreditCard";
 
 export default function HomeScreen() {
     return (
-        <View className="flex-1 justify-center items-center bg-blue-500">
-          <Text className="text-white text-lg">Hello, NativeWind!</Text>
+        <View className={"flex-1 bg-white"}>
+            <ScrollView className={"p-4"}>
+                <CreditCard />
+
+                <Text className={"text-xl font-bold"}>Your Rewards on this card</Text>
+
+            </ScrollView>
         </View>
     );
 }
