@@ -22,6 +22,7 @@ export default function TabLayout() {
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+                animation: 'shift',
                 // Disable the static render of the header on web
                 // to prevent a hydration error in React Navigation v6.
                 headerShown: useClientOnlyValue(false, true),
@@ -30,7 +31,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="index"
                 options={{
-                    title: 'Home',
+                    title: 'Dashboard',
                     tabBarIcon: ({color}) => <TabBarIcon name="home" color={color}/>,
                     headerRight: () => (
                         <Link href="/modal" asChild>
@@ -52,21 +53,21 @@ export default function TabLayout() {
                 name="rewards"
                 options={{
                     title: 'Rewards',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="gift" color={color}/>,
                 }}
             />
             <Tabs.Screen
                 name="transactions"
                 options={{
                     title: 'Transactions',
-                    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,
+                    tabBarIcon: ({color}) => <TabBarIcon name="exchange" color={color}/>,
                 }}
             />
             <Tabs.Screen
                 name="profile"
                 options={{
-                    title: 'Profile',
-                    tabBarIcon: ({color}) => <TabBarIcon name="user" color={color}/>,
+                    title: 'More',
+                    tabBarIcon: ({color}) => <TabBarIcon name="bars" color={color}/>,
                 }}
             />
         </Tabs>
