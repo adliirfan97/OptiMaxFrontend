@@ -50,24 +50,17 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="spending"
+                name="rewards"
                 options={{
-                    title: 'Spending',
-                    tabBarIcon: ({color}) => <TabBarIcon name="bar-chart" color={color}/>,
+                    title: 'Rewards',
+                    tabBarIcon: ({color}) => <TabBarIcon name="gift" color={color}/>,
                 }}
             />
             <Tabs.Screen
-                name="payment"
+                name="transactions"
                 options={{
-                    title: 'Payment',
-                    tabBarIcon: ({color}) => <TabBarIcon name="money" color={color}/>,
-                }}
-            />
-            <Tabs.Screen
-                name="cards"
-                options={{
-                    title: 'Cards',
-                    tabBarIcon: ({color}) => <TabBarIcon name="credit-card" color={color}/>,
+                    title: 'Transactions',
+                    tabBarIcon: ({color}) => <TabBarIcon name="exchange" color={color}/>,
                 }}
             />
             <Tabs.Screen
