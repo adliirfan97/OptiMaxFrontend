@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import CreditCard from "@/components/CreditCard";
 import { useRouter } from "expo-router";
-import { useEffect } from "react";
 
 export default function HomeScreen() {
     const scrollX = useAnimatedValue(0);
