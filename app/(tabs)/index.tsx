@@ -18,21 +18,21 @@ export default function HomeScreen() {
             cardName: "Citi PremierMiles Card",
             cardNumber: "**** **** **** 4242",
             expiryDate: "12/29",
-            image: require("../../assets/images/citi_premiermiles.jpeg")
+            image: require("../../assets/cards/Citi_PremierMiles_Card.png")
         },
         {
-            id: "hsbc-platinum",
-            cardName: "HSBC Platinum Mastercard",
+            id: "citi-rewards",
+            cardName: "Citi Rewards Card",
             cardNumber: "**** **** **** 4444",
             expiryDate: "08/27",
-            image: require("../../assets/images/citi_premiermiles.jpeg")
+            image: require("../../assets/cards/Citi_Rewards_Card.png")
         },
         {
-            id: "amex-gold",
-            cardName: "American Express Gold Card",
+            id: "standard-chartered-simplycash",
+            cardName: "Standard Chartered SimplyCash",
             cardNumber: "**** **** **** 8888",
             expiryDate: "04/28",
-            image: require("../../assets/images/citi_premiermiles.jpeg")
+            image: require("../../assets/cards/Standard_Chartered_Simply_Cash_Credit_Card.png")
         },
     ];
 
