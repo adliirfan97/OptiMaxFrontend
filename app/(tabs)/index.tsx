@@ -1,17 +1,15 @@
 import {
-    Animated,
     ScrollView,
     Text,
-    TouchableOpacity, useAnimatedValue,
-    useWindowDimensions,
+    TouchableOpacity,
     View
 } from 'react-native';
-import CreditCard from "@/components/CreditCard";
 import { useRouter } from "expo-router";
+import AddCardButton from "@/components/AddCardButton";
+import CardCarousel from "@/components/CardCarousel";
+import RewardsView from "@/components/RewardsView";
 
 export default function HomeScreen() {
-    const scrollX = useAnimatedValue(0);
-    const {width: windowWidth} = useWindowDimensions();
     const router = useRouter();
 
     const creditCards = [
@@ -66,73 +64,12 @@ export default function HomeScreen() {
             {creditCards.length > 0 ? (
                 <ScrollView className={"py-4"}>
                     <View className={"gap-y-4"}>
-                        <ScrollView
-                            horizontal
-                            pagingEnabled
-                            showsHorizontalScrollIndicator={false}
-                            onScroll={Animated.event(
-                                [{nativeEvent: {contentOffset: {x: scrollX}}}],
-                                {useNativeDriver: false}
-                            )}
-                            scrollEventThrottle={1}
-                        >
-                            {creditCards.map((card, index) => (
-                                <View key={index} style={{width: windowWidth}}
-                                      className={"items-center justify-center gap-y-2"}>
-                                    <CreditCard card={card} onPress={handleCreditCardPress(card)}/>
-                                    <View className={"w-80 gap-y-2"}>
-                                        <View>
-                                            <Text className={"font-bold"}>{card.cardName}</Text>
-                                        </View>
-                                        <View>
-                                            <Text>{card.cardNumber}</Text>
-                                        </View>
-                                        <View>
-                                            <Text>Expiry Date: {card.expiryDate}</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                            ))}
-                        </ScrollView>
-                        <View className="flex-row items-center justify-center">
-                            {creditCards.map((card, index) => {
-                                const width = scrollX.interpolate({
-                                    inputRange: [
-                                        windowWidth * (index - 1),
-                                        windowWidth * index,
-                                        windowWidth * (index + 1),
-                                    ],
-                                    outputRange: [8, 16, 8],
-                                    extrapolate: 'clamp',
-                                });
-                                return (
-                                    <Animated.View
-                                        key={index}
-                                        className="h-2 bg-gray-400 mx-1 rounded-full"
-                                        style={{width}}
-                                    />
-                                );
-                            })}
-                        </View>
 
-                        <TouchableOpacity
-                            onPress={handleAddCard}
-                            className={"bg-pink-300 p-4 rounded-full self-center"}>
-                            <Text className={"text-white font-bold"}>Add Card</Text>
-                        </TouchableOpacity>
+                        <CardCarousel creditCards={creditCards} handleCreditCardPress={handleCreditCardPress}/>
 
-                        <View className={"gap-y-4 px-4"}>
-                            <Text className={"text-xl font-bold"}>Your Rewards on this card</Text>
-                            {cardRewards.map((reward, index) => (
-                                <View key={index} className={"flex-row gap-x-4"}>
-                                    <View className={"bg-gray-400 size-20 rounded-xl"}/>
-                                    <View className={"flex-1 gap-y-1"}>
-                                        <Text className={"text-lg font-semibold"}>{reward.name}</Text>
-                                        <Text className={"text-wrap"}>{reward.reward}</Text>
-                                    </View>
-                                </View>
-                            ))}
-                        </View>
+                        <AddCardButton handleAddCard={handleAddCard}/>
+
+                        <RewardsView cardRewards={cardRewards}/>
                     </View>
                 </ScrollView>
             ) : (
@@ -146,8 +83,6 @@ export default function HomeScreen() {
                         <Text className="text-white font-bold">Add Card</Text>
                     </TouchableOpacity>
                 </View>
-
-
             )}
         </View>
     );
