@@ -76,13 +76,13 @@ export default function HomeScreen() {
                 </ScrollView>
             ) : (
                 <View className="items-center justify-center py-10 gap-y-4">
-                    <Text className="text-lg font-bold text-gray-600">No cards available</Text>
-                    <Text className="text-gray-500">Add a card to start earning rewards</Text>
+                    <Text className="text-2xl font-bold text-gray-600">No cards available</Text>
+                    <Text className="text-xl text-gray-500">Add a card to start earning rewards</Text>
                     <TouchableOpacity
                         onPress={handleAddCard}
                         className="bg-pink-300 p-4 rounded-full self-center"
                     >
-                        <Text className="text-white font-bold">Add Card</Text>
+                        <Text className="text-xl text-white font-bold">Add Card</Text>
                     </TouchableOpacity>
                 </View>
             )}

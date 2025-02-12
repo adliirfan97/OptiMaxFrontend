@@ -23,13 +23,13 @@ export default function CardCarousel({ creditCards, handleCreditCardPress }) {
                         <CreditCard card={card} onPress={handleCreditCardPress(card)}/>
                         <View className={"w-80 gap-y-2"}>
                             <View>
-                                <Text className={"font-bold"}>{card.cardName}</Text>
+                                <Text className={"font-bold text-xl"}>{card.cardName}</Text>
                             </View>
                             <View>
-                                <Text>{card.cardNumber}</Text>
+                                <Text className={"text-xl"}>{card.cardNumber}</Text>
                             </View>
                             <View>
-                                <Text>Expiry Date: {card.expiryDate}</Text>
+                                <Text className={"text-xl"}>Expiry Date: {card.expiryDate}</Text>
                             </View>
                         </View>
                     </View>

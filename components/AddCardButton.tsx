@@ -5,7 +5,7 @@ export default function AddCardButton({ handleAddCard }: { handleAddCard: () => 
         <TouchableOpacity
             onPress={handleAddCard}
             className={"bg-pink-300 p-4 rounded-full self-center"}>
-            <Text className={"text-white font-bold"}>Add Card</Text>
+            <Text className={"text-xl text-white font-bold"}>Add Card</Text>
         </TouchableOpacity>
     );
 }
