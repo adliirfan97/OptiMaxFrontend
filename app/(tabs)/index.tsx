@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import {
     ScrollView,
     Text,
     TouchableOpacity,
-    View
+    View,
 } from 'react-native';
 import { useRouter } from "expo-router";
 import AddCardButton from "@/components/AddCardButton";
@@ -11,30 +12,31 @@ import RewardsView from "@/components/RewardsView";
 
 export default function HomeScreen() {
     const router = useRouter();
-
-    const creditCards = [
-        {
-            id: "citi-premiermiles",
-            cardName: "Citi PremierMiles Card",
-            cardNumber: "**** **** **** 4242",
-            expiryDate: "12/29",
-            image: require("../../assets/cards/Citi_PremierMiles_Card.png")
-        },
-        {
-            id: "citi-rewards",
-            cardName: "Citi Rewards Card",
-            cardNumber: "**** **** **** 4444",
-            expiryDate: "08/27",
-            image: require("../../assets/cards/Citi_Rewards_Card.png")
-        },
-        {
-            id: "standard-chartered-simplycash",
-            cardName: "Standard Chartered SimplyCash",
-            cardNumber: "**** **** **** 8888",
-            expiryDate: "04/28",
-            image: require("../../assets/cards/Standard_Chartered_Simply_Cash_Credit_Card.png")
-        },
-    ];
+    const [isShowCard, setIsShowCard] = useState(false)
+    const creditCards = 
+       isShowCard ? [{
+        id: "citi-premiermiles",
+        cardName: "Citi PremierMiles Card",
+        cardNumber: "**** **** **** 4242",
+        expiryDate: "12/29",
+        image: require("../../assets/cards/Citi_PremierMiles_Card.png")
+    },
+    {
+        id: "citi-rewards",
+        cardName: "Citi Rewards Card",
+        cardNumber: "**** **** **** 4444",
+        expiryDate: "08/27",
+        image: require("../../assets/cards/Citi_Rewards_Card.png")
+    },
+    {
+        id: "standard-chartered-simplycash",
+        cardName: "Standard Chartered SimplyCash",
+        cardNumber: "**** **** **** 8888",
+        expiryDate: "04/28",
+        image: require("../../assets/cards/Standard_Chartered_Simply_Cash_Credit_Card.png")
+    },] : [];
+    
+      
 
     const cardRewards = [
         {name: "Groceries", reward: "Cashback Rate: 3%"},
@@ -52,7 +54,7 @@ export default function HomeScreen() {
 
 
     function handleAddCard() {
-        // Implementation of Add Card function
+      setIsShowCard(!isShowCard);
     }
 
     function handleCreditCardPress(card) {
