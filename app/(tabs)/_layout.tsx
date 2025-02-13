@@ -26,6 +26,9 @@ export default function TabLayout() {
                 // Disable the static render of the header on web
                 // to prevent a hydration error in React Navigation v6.
                 headerShown: useClientOnlyValue(false, true),
+                tabBarLabelStyle: {
+                    fontSize: 16, // Set a larger font size for all tabs
+                },
             }}
         >
             <Tabs.Screen
@@ -60,7 +63,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name="transactions"
                 options={{
-                    title: 'Transactions',
+                    title: 'Record',
                     tabBarIcon: ({color}) => <TabBarIcon name="exchange" color={color}/>,
                 }}
             />
