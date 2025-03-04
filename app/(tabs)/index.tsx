@@ -53,6 +53,7 @@ export default function HomeScreen() {
 
     function handleAddCard() {
         // Implementation of Add Card function
+        router.push("addCard");
     }
 
     function handleCreditCardPress(card) {
