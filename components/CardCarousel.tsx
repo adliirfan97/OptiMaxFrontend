@@ -1,9 +1,10 @@
-import { Animated, ScrollView, Text, useAnimatedValue, useWindowDimensions, View } from "react-native";
+import { Animated, ScrollView, Text, useAnimatedValue, View } from "react-native";
 import CreditCard from "@/components/CreditCard";
+import { screenWidth } from '../constants/ScreenDimensions';
 
 export default function CardCarousel({ creditCards, handleCreditCardPress }) {
     const scrollX = useAnimatedValue(0);
-    const {width: windowWidth} = useWindowDimensions();
+    const cardWidth = screenWidth * 0.8;
 
     return (
         <>
@@ -18,10 +19,10 @@ export default function CardCarousel({ creditCards, handleCreditCardPress }) {
                 scrollEventThrottle={1}
             >
                 {creditCards.map((card, index) => (
-                    <View key={index} style={{width: windowWidth}}
+                    <View key={index} style={{width: screenWidth}}
                           className={"items-center justify-center gap-y-2"}>
                         <CreditCard card={card} onPress={handleCreditCardPress(card)}/>
-                        <View className={"w-80 gap-y-2"}>
+                        <View style={[{width: cardWidth}]} className={"w-80 gap-y-2 px-4"}>
                             <View>
                                 <Text className={"font-bold"}>{card.cardName}</Text>
                             </View>
@@ -39,9 +40,9 @@ export default function CardCarousel({ creditCards, handleCreditCardPress }) {
                 {creditCards.map((card, index) => {
                     const width = scrollX.interpolate({
                         inputRange: [
-                            windowWidth * (index - 1),
-                            windowWidth * index,
-                            windowWidth * (index + 1),
+                            screenWidth * (index - 1),
+                            screenWidth * index,
+                            screenWidth * (index + 1),
                         ],
                         outputRange: [8, 16, 8],
                         extrapolate: 'clamp',
