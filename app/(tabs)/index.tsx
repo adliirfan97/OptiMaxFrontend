@@ -1,13 +1,13 @@
+import AddCardButton from "@/components/AddCardButton";
+import CardCarousel from "@/components/CardCarousel";
+import RewardsView from "@/components/RewardsView";
+import { useRouter } from "expo-router";
 import {
     ScrollView,
     Text,
     TouchableOpacity,
     View
 } from 'react-native';
-import { useRouter } from "expo-router";
-import AddCardButton from "@/components/AddCardButton";
-import CardCarousel from "@/components/CardCarousel";
-import RewardsView from "@/components/RewardsView";
 
 export default function HomeScreen() {
     const router = useRouter();
@@ -53,7 +53,7 @@ export default function HomeScreen() {
 
     function handleAddCard() {
         // Implementation of Add Card function
-        router.push("addCard");
+        router.push("../addCard");
     }
 
     function handleCreditCardPress(card) {

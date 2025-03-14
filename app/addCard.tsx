@@ -1,5 +1,6 @@
+import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import cardNumbers from '../constants/CardNumbers';
 
 const cardBrandImages: Record<string, any> = {
@@ -18,6 +19,7 @@ export default function AddCard({ navigation }) {
     const [cardNameError, setCardNameError] = useState('');
     const [cardNumberError, setCardNumberError] = useState('');
     const [ccvError, setCcvError] = useState('');
+    const router = useRouter();
 
     const handleAddCard = () => {
         let hasError = false;
@@ -60,8 +62,13 @@ export default function AddCard({ navigation }) {
             // Implementation of adding card logic
             // For example, you can send the card details to your backend server or update the state
             console.log({ cardName, cardNumber, expiryDate, ccv, cardBrand });
+            router.push("/");
         }
     };
+
+    const handleBack = () => {
+        router.push("/");
+    }
 
     return (
         <View style={styles.container}>
@@ -136,6 +143,9 @@ export default function AddCard({ navigation }) {
                 <TouchableOpacity onPress={handleAddCard} style={styles.addButton}>
                     <Text style={styles.addButtonText}>Add Card</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={handleBack} style={styles.addButton}>
+                    <Text style={styles.addButtonText}>Back</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -205,6 +215,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
+        justifyContent: "center",
     },
     title: {
         fontSize: 24,
