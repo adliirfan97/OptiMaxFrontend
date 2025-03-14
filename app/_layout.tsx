@@ -52,9 +52,9 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
 
       if (isAuthenticated) {
-        router.replace("/(tabs)");
+        router.push("/");
       } else {
-        router.replace("/(auth)/login");
+        router.push("/(auth)/login");
       }
     }
   }, [isAuthenticated]);
@@ -74,7 +74,6 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={useColorScheme() === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="login" />
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         <Stack.Screen name="addCard" options={{ headerBackTitle: "Back", headerTitle: "" }}/>

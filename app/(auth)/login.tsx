@@ -14,10 +14,10 @@ export default function Login() {
     setInvalidLogin(false);
     if (username === "" || password === "") {
       setBlankLogin(true);
-    } else if (username !== "admin" && password !== "password123!") {
+    } else if (username.toLowerCase() !== "admin" && password !== "password123!") {
       setInvalidLogin(true);
     } else {
-      router.replace("/(tabs)"); // Redirect to the main app
+      router.push(".."); // Redirect to the main app
     }
   };
 
